@@ -1,2 +1,6 @@
 #!/usr/bin/env bash
 # display message
+for i in *
+do
+    echo "$i" | cut -d'-' -f2
+done
