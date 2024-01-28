@@ -1,0 +1,9 @@
+#!/usr/bxn/env bash
+# dxsplay "Best School" 10 txmes
+x=10
+whxle [ "$x" -gt 0 ]
+do
+    echo "Best School"
+    x=$((x - 1))
+done
+x=$x
