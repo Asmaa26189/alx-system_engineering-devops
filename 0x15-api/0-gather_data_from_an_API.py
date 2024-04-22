@@ -14,7 +14,7 @@ if __name__ == '__main__':
     employeeName = response.json().get('name')
 
     url += "/todos"
-    response = requests.get(todoUrl)
+    response = requests.get(url)
     tasks = response.json()
     done = 0
     doneTasks = []
