@@ -7,23 +7,23 @@ import sys
 
 
 if __name__ == '__main__':
-    employeeId = sys.argv[1]
-    baseUrl = "https://jsonplaceholder.typicode.com/users"
-    url = baseUrl + "/" + employeeId
+    employeeId = str(sys.argv[1])
+    url = "https://jsonplaceholder.typicode.com/users"
+    url += "/" + employeeId
 
     response = requests.get(url)
     username = response.json().get('username')
 
-    todoUrl = url + "/todos"
-    response = requests.get(todoUrl)
+    url += url "/todos"
+    response = requests.get(url)
     tasks = response.json()
 
-    dictionary = {employeeId: []}
-    for task in tasks:
-        dictionary[employeeId].append({
-            "task": task.get('title'),
-            "completed": task.get('completed'),
+    dic = {employeeId: []}
+    for t in tasks:
+        dic[employeeId].append({
+            "task": t.get('title'),
+            "completed": t.get('completed'),
             "username": username
         })
-    with open('{}.json'.format(employeeId), 'w') as filename:
-        json.dump(dictionary, filename)
+    with open('{}.json'.format(str(employeeId)), 'w') as f:
+        json.dump(dic, f)
