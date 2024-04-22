@@ -7,14 +7,14 @@ import sys
 
 
 if __name__ == '__main__':
-    employeeId = str(sys.argv[1])
+    employeeId = 4 #str(sys.argv[1])
     url = "https://jsonplaceholder.typicode.com/users"
     url += "/" + employeeId
 
     response = requests.get(url)
     username = response.json().get('username')
 
-    url += url "/todos"
+    url += "/todos"
     response = requests.get(url)
     tasks = response.json()
 
