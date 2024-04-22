@@ -7,7 +7,7 @@ import sys
 
 
 if __name__ == '__main__':
-    employeeId = 4 #str(sys.argv[1])
+    employeeId = str(sys.argv[1])
     url = "https://jsonplaceholder.typicode.com/users"
     url += "/" + employeeId
 

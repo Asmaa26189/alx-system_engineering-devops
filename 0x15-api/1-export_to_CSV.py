@@ -20,5 +20,5 @@ if __name__ == '__main__':
     with open('{}.csv'.format(employeeId), 'w') as f:
         for t in tasks:
             f.write('"{}","{}","{}","{}"\n'
-                       .format(employeeId, username, t.get('completed'),
+                    .format(employeeId, username, t.get('completed'),
                                t.get('title')))
