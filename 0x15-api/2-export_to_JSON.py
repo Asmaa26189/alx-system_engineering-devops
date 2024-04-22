@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""REST API """
+"""REST API"""
 
 import json
 import requests
@@ -8,22 +8,22 @@ import sys
 
 if __name__ == '__main__':
     employeeId = sys.argv[1]
-    url = "https://jsonplaceholder.typicode.com/users"
-    url += "/" + str(employeeId)
+    baseUrl = "https://jsonplaceholder.typicode.com/users"
+    url = baseUrl + "/" + employeeId
 
     response = requests.get(url)
     username = response.json().get('username')
 
-    url += "/todos"
-    response = requests.get(url)
+    todoUrl = url + "/todos"
+    response = requests.get(todoUrl)
     tasks = response.json()
 
-    dic = {str(employeeId): []}
-    for t in tasks:
-        dic[str(employeeId)].append({
-            "task": t.get('title'),
-            "completed": t.get('completed'),
+    dictionary = {employeeId: []}
+    for task in tasks:
+        dictionary[employeeId].append({
+            "task": task.get('title'),
+            "completed": task.get('completed'),
             "username": username
         })
-    with open('{}.json'.format(str(employeeId)), 'w') as f:
-        json.dump(dic, f)
+    with open('{}.json'.format(employeeId), 'w') as filename:
+        json.dump(dictionary, filename)
