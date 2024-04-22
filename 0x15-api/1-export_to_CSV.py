@@ -21,4 +21,4 @@ if __name__ == '__main__':
         for t in tasks:
             f.write('"{}","{}","{}","{}"\n'
                     .format(employeeId, username, t.get('completed'),
-                               t.get('title')))
+                            t.get('title')))

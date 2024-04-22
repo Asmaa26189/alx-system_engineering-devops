@@ -7,9 +7,9 @@ import sys
 
 
 if __name__ == '__main__':
-    employeeId = str(sys.argv[1])
+    employeeId = sys.argv[1]
     url = "https://jsonplaceholder.typicode.com/users"
-    url += "/" + employeeId
+    url += "/" + str(employeeId)
 
     response = requests.get(url)
     username = response.json().get('username')
@@ -18,9 +18,9 @@ if __name__ == '__main__':
     response = requests.get(url)
     tasks = response.json()
 
-    dic = {employeeId: []}
+    dic = {str(employeeId): []}
     for t in tasks:
-        dic[employeeId].append({
+        dic[str(employeeId)].append({
             "task": t.get('title'),
             "completed": t.get('completed'),
             "username": username
